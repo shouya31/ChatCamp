@@ -1,0 +1,172 @@
+.wrapper {
+  display: flex;
+}
+
+.chat {
+  width: calc(100% - 250px);
+}
+
+.chat .header {
+  box-sizing: border-box;
+  height: 100px;
+  display: flex;
+  padding: 0 40px;
+  justify-content: space-between;
+}
+
+.chat .header .left-header__title {
+  color: #333;
+  font-size: 20px;
+  margin-top: 35px;
+}
+
+.chat .header .left-header__members {
+  color: #999;
+  display: flex;
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+.chat .header .left-header__members .member {
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.chat .header .right-header {
+  border: 1px solid darkred;
+  color: darkred;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 16px;
+  padding: 10px 20px;
+}
+
+.chat .messages {
+  background-color: #FAFAFA;
+  box-sizing: border-box;
+  padding: 46px 40px 0;
+  height: calc(100vh - 100px - 90px);
+  overflow: scroll;
+}
+
+.chat .messages .message .upper-message {
+  display: flex;
+}
+
+.chat .messages .message .upper-message__user-name {
+  color: #434a54;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.chat .messages .message .upper-message__date {
+  color: #999;
+  font-size: 12px;
+  padding-left: 10px;
+}
+
+.chat .messages .message .lower-message {
+  margin-top: 10px;
+}
+
+.chat .messages .message .lower-message__content {
+  color: #434a54;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+.chat .form {
+  background-color: #DDDDDD;
+  box-sizing: border-box;
+  height: 90px;
+  padding: 20px 30px 20px 40px;
+}
+
+form {
+  display: flex;
+}
+
+.chat .form__message {
+  border: none;
+  height: 50px;
+  width: calc(100% - 200px);
+}
+
+.chat .form__mask {
+  background-color: lightblue;
+  color: white;
+  margin-left: 30px;
+  padding: 0 15px;
+}
+
+.chat .form__mask__image {
+  font-size: 15px;
+  line-height: 50px;
+}
+
+.chat .form__mask .hidden {
+  display: none;
+}
+
+.chat .form__submit {
+  background-color: #38AEF0;
+  border: none;
+  color: white;
+  font-size: 16px;
+  height: 50px;
+  margin-left: 15px;
+  padding: 0 30px;
+}
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+
+.side-bar {
+  box-sizing: border-box;
+  color: white;
+  width: 250px;
+}
+
+.side-bar .header {
+  background-color: #253141;
+  height: 100px;
+  line-height: 100px;
+  padding: 0 20px;
+}
+
+.side-bar .header__name {
+  display: inline-block;
+  font-weight: bold;
+}
+
+.side-bar .header__lists {
+  display: inline-block;
+}
+
+.side-bar .header__lists .list {
+  display: inline-block;
+}
+
+.side-bar .header__lists .icon {
+  color: white;
+}
+
+.side-bar .groups {
+  background-color: #2f3e51;
+  height: calc(100vh - 100px);
+  padding: 0 20px;
+}
+
+.side-bar .groups .group {
+  box-sizing: border-box;
+  padding: 20px 0 40px;
+}
+
+.side-bar .groups .group__name {
+  color: white;
+}
+
+.side-bar .groups .group__message {
+  color: white;
+  margin-top: 5px;
+}

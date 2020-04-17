@@ -3,7 +3,7 @@
   <div class='side-bar'>
     <div class='header'>
       <h3 class='header__name'>
-        ユーザーネーム
+        <%= current_user.name %>
       </h3>
     </div>
     <div class='groups'>
@@ -35,7 +35,7 @@
       </div>
       <div class='right-header'>
         <div class='right-header__button'>
-          チャットを終了する
+          <%= link_to "チャットを終了する", destroy_user_session_path,  method: :delete %>
         </div>
       </div>
     </div>

@@ -1,0 +1,31 @@
+.chat-group-form
+  %h1 新規チャットグループ
+  =form_for @room do |f|
+    .chat-group-form__field
+      .chat-group-form__field--left
+        = f.label :name, class: 'chat-group-form__label'
+      .chat-group-form__field--right
+        = f.text_field :name, class: 'chat__group_name chat-group-form__input', placeholder: 'グループ名を入力してください'
+    .chat-group-form__field.clearfix
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        %label.chat-group-form__label{:for => "chat_group_チャットメンバー"} チャットメンバー
+      .chat-group-form__field--right
+        %select{name: 'room[user_ids][]'}
+          %option チャットするユーザーを選択してください
+          - User.all.where.not(id: current_user.id).each do |user|
+            %option{value: user.id}
+              = user.name
+        %input{name: "room[user_ids][]", type: "hidden", value: current_user.id}
+
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+      .chat-group-form__field--right
+        = f.submit class: 'chat-group-form__action-btn'
+
+.chat-group-form
+  %h1 チャットを再開する
+  - current_user.rooms.each do |room|
+    .chat-group-user.clearfix
+      %p.chat-group-user__name
+        = link_to room.name, room_messages_path(room)

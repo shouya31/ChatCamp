@@ -7,21 +7,13 @@
       </h3>
     </div>
     <div class='groups'>
+      <% current_user.rooms.each do |room| %>
       <div class='group'>
         <div class='group__name'>
-          チャットルーム名
+          <%= link_to room.name, room_messages_path(room) %>
         </div>
       </div>
-      <div class='group'>
-        <div class='group__name'>
-          チャットルーム名
-        </div>
-      </div>
-      <div class='group'>
-        <div class='group__name'>
-          チャットルーム名
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 
@@ -35,7 +27,7 @@
       </div>
       <div class='right-header'>
         <div class='right-header__button'>
-          <%= link_to "チャットを終了する", destroy_user_session_path,  method: :delete %>
+          <%= link_to "チャットを終了する", root_path %>
         </div>
       </div>
     </div>
@@ -87,16 +79,15 @@
       </div>
     </div>
     <div class='form'>
-      <form>
-        <input class='form__message'>
-        <div class='form__mask'>
-          <label class='form__mask__image'>
-            <span class="image_file">画像</span>
-            <input type="file" class='hidden'>
-          </label>
-        </div>
-        <input type="submit" class='form__submit'>
-      </form>
+
+      <input class='form__message'>
+      <div class='form__mask'>
+        <label class='form__mask__image'>
+          <span class="image_file">画像</span>
+          <input type="file" class='hidden'>
+        </label>
+      </div>
+      <input type="submit" class='form__submit'>
     </div>
   </div>
 </div>

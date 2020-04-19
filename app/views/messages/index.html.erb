@@ -32,62 +32,18 @@
       </div>
     </div>
     <div class='messages'>
-      <div class='message'>
-        <div class='upper-message'>
-          <div class='upper-message__user-name'>
-            メンバー
-          </div>
-          <div class='upper-message__date'>
-            2017/04/04
-          </div>
-        </div>
-        <div class='lower-meesage'>
-          <div class='lower-message__content'>
-            メッセージ
-          </div>
-        </div>
-      </div>
-      <div class='message'>
-        <div class='upper-message'>
-          <div class='upper-message__user-name'>
-            メンバー
-          </div>
-          <div class='upper-message__date'>
-            2017/04/04
-          </div>
-        </div>
-        <div class='lower-meesage'>
-          <div class='lower-message__content'>
-            メッセージ
-          </div>
-        </div>
-      </div>
-      <div class='message'>
-        <div class='upper-message'>
-          <div class='upper-message__user-name'>
-            メンバー
-          </div>
-          <div class='upper-message__date'>
-            2017/04/04
-          </div>
-        </div>
-        <div class='lower-meesage'>
-          <div class='lower-message__content'>
-            メッセージ
-          </div>
-        </div>
-      </div>
+      <%= render @messages%>
     </div>
-    <div class='form'>
+    <%= form_with model: [@room, @message], html: {class: "form"}, local: true do |f|%>
 
-      <input class='form__message'>
-      <div class='form__mask'>
-        <label class='form__mask__image'>
-          <span class="image_file">画像</span>
-          <input type="file" class='hidden'>
-        </label>
-      </div>
-      <input type="submit" class='form__submit'>
+    <%= f.text_field :content, class: 'form__message', placeholder: 'type a message' %>
+    <div class='form__mask'>
+      <%= f.label :image, class: 'form__mask__image' do %>
+      <span class="image_file">画像</span>
+      <%= f.file_field :image, class: 'hidden' %>
+      <% end %>
     </div>
+    <%= f.submit 'Send', class: 'form__submit' %>
+    <% end %>
   </div>
 </div>

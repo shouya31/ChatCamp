@@ -24,6 +24,14 @@
       <div class='left-header'>
         <div class='left-header__title'>
           <%= @room.name %>
+          <ul class='left-header__members'>
+            Member：
+            <% @room.users.each do |user| %>
+            <li class='member'>
+              <%= user.name%>
+            </li>
+            <% end %>
+          </ul>
         </div>
 
       </div>

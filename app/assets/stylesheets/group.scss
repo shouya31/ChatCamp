@@ -4,6 +4,7 @@ h1 {
   font-weight: bold;
   text-align: center;
 }
+
 h2 {
   margin-bottom: 10px;
   color: #f05050;
@@ -32,6 +33,7 @@ li {
   border: 1px solid #ddd;
   border-radius: 5px;
   box-sizing: border-box;
+
   &__errors {
     margin: 30px 0;
     padding: 20px 40px;
@@ -39,12 +41,14 @@ li {
     border-radius: 2px;
     text-align: center;
   }
+
   &__label {
     display: block;
     line-height: 50px;
     font-weight: bold;
     text-align: right;
   }
+
   &__input {
     float: left;
     width: 100%;
@@ -52,6 +56,7 @@ li {
     padding: 10px 15px;
     box-sizing: border-box;
   }
+
   &__action-btn {
     display: inline-block;
     padding: 12px 20px;
@@ -59,13 +64,16 @@ li {
     background-color: #38aef0;
     border: 0;
   }
+
   &__field {
     margin-top: 30px;
+
     &:after {
       content: "";
       clear: both;
       display: block;
     }
+
     &--left {
       float: left;
       width: 30%;
@@ -73,6 +81,7 @@ li {
       padding-left: 20px;
       box-sizing: border-box;
     }
+
     &--right {
       float: right;
       width: 70%;
@@ -85,23 +94,35 @@ li {
   line-height: 50px;
   font-size: 14px;
   border-bottom: 1px solid #ddd;
+  width: 500px;
+  margin: 0 auto;
+
   &:after {
     content: "";
     clear: both;
     display: block;
   }
+
   &__name {
     float: left;
   }
+
   &__btn {
     float: right;
     display: inline-block;
     cursor: pointer;
+
     &--add {
       color: #38aef0;
     }
+
     &--remove {
       color: #f05050;
     }
   }
+}
+
+select {
+  width: 500px;
+  height: 50px;
 }

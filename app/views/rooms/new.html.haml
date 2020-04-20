@@ -12,7 +12,7 @@
         %label.chat-group-form__label{:for => "chat_group_チャットメンバー"} チャットメンバー
       .chat-group-form__field--right
         %select{name: 'room[user_ids][]'}
-          %option チャットするユーザーを選択してください
+          %option{value: ""} チャットするユーザーを選択してください
           - User.all.where.not(id: current_user.id).each do |user|
             %option{value: user.id}
               = user.name

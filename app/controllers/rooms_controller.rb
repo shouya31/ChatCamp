@@ -5,8 +5,6 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new(room_params)
-    binding.pry
-
     if @room.save
       redirect_to room_messages_path(@room.id), notice: 'グループを作成しました'
     else

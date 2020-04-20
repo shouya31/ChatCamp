@@ -22,10 +22,10 @@
       .chat-group-form__field--left
       .chat-group-form__field--right
         = f.submit class: 'chat-group-form__action-btn'
-
-.chat-group-form
-  %h1 チャットを再開する
-  - current_user.rooms.each do |room|
-    .chat-group-user.clearfix
-      %p.chat-group-user__name
-        = link_to room.name, room_messages_path(room)
+-if current_user.rooms.present?
+  .chat-group-form
+    %h1 チャットを再開する
+    - current_user.rooms.each do |room|
+      .chat-group-user.clearfix
+        %p.chat-group-user__name
+          = link_to room.name, room_messages_path(room)

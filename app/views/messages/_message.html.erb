@@ -10,6 +10,8 @@
     <div class='lower-meesage'>
       <div class='lower-message__content'>
         <%= message.content%>
+      </div>
+      <div class="lower-message__image">
         <%= image_tag message.image_upload, class: 'Message__image' if message.image.present?%>
       </div>
     </div>

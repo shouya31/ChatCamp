@@ -1,9 +1,12 @@
 <div class='header'>
-  <h3 class='header__name'>
+  <div class='header__name'>
     <%= link_to edit_user_path(current_user) do %>
     <%= current_user.name %>
     <% end %>
-  </h3>
+  </div>
+  <div class="create-chat">
+    <%= link_to "チャットを作成する", new_room_path %>
+  </div>
 </div>
 <div class='groups'>
   <% current_user.rooms.each do |room| %>

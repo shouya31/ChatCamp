@@ -38,6 +38,10 @@
 }
 
 .chat .header .right-header {
+  display: flex;
+}
+
+.chat .header .right-header .right-header__button {
   border: 1px solid darkred;
   color: darkred;
   height: 40px;
@@ -51,7 +55,19 @@
   text-decoration: none;
 }
 
+.create-chat {
+  border: 1px solid lightblue;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 16px;
+  padding: 10px 20px;
+  margin-right: 20px;
+}
 
+.create-chat a {
+  color: deepskyblue;
+  text-decoration: none;
+}
 
 .chat .messages {
   background-color: #FAFAFA;

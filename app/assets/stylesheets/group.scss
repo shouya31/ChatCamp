@@ -122,6 +122,11 @@ li {
   }
 }
 
+.chat-group-user__name a {
+  text-decoration: none;
+  color: #38aef0;
+}
+
 select {
   width: 500px;
   height: 50px;

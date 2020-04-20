@@ -41,6 +41,13 @@
   padding: 10px 20px;
 }
 
+.chat .header .right-header .right-header__button a {
+  color: darkred;
+  text-decoration: none;
+}
+
+
+
 .chat .messages {
   background-color: #FAFAFA;
   box-sizing: border-box;
@@ -160,7 +167,8 @@
   padding: 20px 0 40px;
 }
 
-.side-bar .groups .group__name {
+.side-bar .groups .group__name a {
+  text-decoration: none;
   color: white;
 }
 

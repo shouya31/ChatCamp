@@ -123,16 +123,14 @@
   width: 64vw;
 }
 
-.chat .form__mask {
-  background-color: lightblue;
-  color: white;
-  margin-left: 15px;
-  padding: 0 15px;
-}
 
 .chat .form__mask__image {
   font-size: 12px;
   line-height: 50px;
+  background-color: lightblue;
+  color: white;
+  margin-left: 15px;
+  padding: 18px 15px;
 }
 
 .chat .form__mask .hidden {

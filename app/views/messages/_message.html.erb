@@ -12,7 +12,7 @@
         <%= message.content%>
       </div>
       <div class="lower-message__image">
-        <%= image_tag message.image_upload, class: 'Message__image' if message.image.present?%>
+        <%= image_tag message.image_upload, class: 'Message__image' if message.image.attached? %>
       </div>
     </div>
   </div>

@@ -42,31 +42,29 @@
 }
 
 .chat .header .right-header .right-header__button {
-  border: 1px solid darkred;
-  color: darkred;
+  margin-top: 24px;
   height: 40px;
-  line-height: 40px;
-  margin-top: 16px;
-  padding: 10px 20px;
 }
 
 .chat .header .right-header .right-header__button a {
   color: darkred;
   text-decoration: none;
+  border: 1px solid darkred;
+  color: darkred;
+  padding: 20px;
+  line-height: 40px;
+
 }
 
 .create-chat {
-  border: 1px solid lightblue;
-  height: 40px;
-  line-height: 40px;
-  margin-top: 30px;
-  padding: 0px 5px;
   font-size: 10px;
-  margin-left: 40px;
 }
 
 
 .create-chat a {
+  line-height: 40px;
+  border: 1px solid lightblue;
+  padding: 14px;
   color: deepskyblue;
   text-decoration: none;
 }
@@ -109,7 +107,7 @@
   background-color: #DDDDDD;
   box-sizing: border-box;
   height: 90px;
-  padding: 20px 30px 20px 40px;
+  padding: 20px 0px 20px 40px;
   display: flex;
 
 }
@@ -117,7 +115,7 @@
 .chat .form__message {
   border: none;
   height: 50px;
-  width: 880px;
+  width: 64vw;
 }
 
 .chat .form__mask {
@@ -128,7 +126,7 @@
 }
 
 .chat .form__mask__image {
-  font-size: 15px;
+  font-size: 12px;
   line-height: 50px;
 }
 
@@ -143,7 +141,7 @@
   font-size: 16px;
   height: 50px;
   margin-left: 15px;
-  padding: 0 30px;
+  padding: 0 20px;
 }
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */

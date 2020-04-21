@@ -30,15 +30,17 @@
       <%= render @messages%>
     </div>
     <%= form_with model: [@room, @message], html: {class: "form"}, local: true do |f|%>
-
-    <%= f.text_field :content, class: 'form__message', placeholder: 'type a message' %>
-    <div class='form__mask'>
+    <div class="form-input">
+      <%= f.text_field :content, class: 'form__message', placeholder: 'type a message' %>
       <%= f.label :image, class: 'form__mask__image' do %>
       <span class="image_file">画像</span>
       <%= f.file_field :image, class: 'hidden' %>
       <% end %>
     </div>
-    <%= f.submit '送信', class: 'form__submit' %>
+    <div class='form__mask'>
+
+      <%= f.submit '送信', class: 'form__submit' %>
+    </div>
     <% end %>
   </div>
 </div>

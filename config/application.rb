@@ -12,6 +12,9 @@ module ChatCamp
     config.load_defaults 6.0
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+      %Q(#{html_tag}).html_safe
+    end
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

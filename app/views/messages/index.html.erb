@@ -1,18 +1,18 @@
-<div class='wrapper'>
+<div class='Wrapper'>
 
-  <div class='side_bar'>
+  <div class='SideBar'>
     <%= render "side"%>
   </div>
 
-  <div class='chat'>
-    <div class='chat-header'>
-      <div class='left-header'>
-        <div class='header-title'>
+  <div class='Chat'>
+    <div class='ChatHeader'>
+      <div class='LeftHeader'>
+        <div class='HeaderTitle'>
           <%= @room.name %>
-          <ul class='header-members'>
+          <ul class='HeaderMembers'>
             Member：
             <% @room.users.each do |user| %>
-            <li class='member'>
+            <li class='Member'>
               <%= user.name%>
             </li>
             <% end %>
@@ -20,25 +20,25 @@
         </div>
 
       </div>
-      <div class='right-header'>
-        <div class='header-button'>
+      <div class='RightHeader'>
+        <div class='HeaderButton'>
           <%= link_to "チャットを終了する", room_path(@room), method: :delete %>
         </div>
       </div>
     </div>
-    <div class='messages'>
+    <div class='Messages'>
       <%= render @messages%>
     </div>
-    <%= form_with model: [@room, @message], html: {class: "form"}, local: true do |f|%>
-    <div class="form-input">
-      <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
-      <%= f.label :image, class: 'form-image' do %>
-      <span class="image_file">画像</span>
-      <%= f.file_field :image, class: 'hidden' %>
+    <%= form_with model: [@room, @message], html: {class: "Form"}, local: true do |f|%>
+    <div class="FormInput">
+      <%= f.text_field :content, class: 'FormMessage', placeholder: 'type a message' %>
+      <%= f.label :image, class: 'FormImage' do %>
+      <span class="ImageFile">画像</span>
+      <%= f.file_field :image, class: 'Hidden' %>
       <% end %>
     </div>
 
-    <%= f.submit '送信', class: 'form-submit' %>
+    <%= f.submit '送信', class: 'FormSubmit' %>
     <% end %>
   </div>
 </div>

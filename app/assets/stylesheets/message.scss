@@ -1,14 +1,14 @@
-.wrapper {
+.Wrapper {
   display: flex;
 }
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 
-.side_bar {
+.SideBar {
   color: white;
   width: 300px;
 }
 
-.side_bar-header {
+.SideBarHeader {
   background-color: #253141;
   padding: 0 20px;
   height: 100px;
@@ -17,12 +17,12 @@
   align-items: center;
 }
 
-.create-room {
+.CreateRoom {
   font-size: 10px;
 }
 
 
-.create-room a {
+.CreateRoom a {
   border: 1px solid lightblue;
   padding: 14px;
   color: deepskyblue;
@@ -30,61 +30,61 @@
 }
 
 
-.rooms {
+.Rooms {
   background-color: #2f3e51;
   height: calc(100vh - 100px);
   padding: 0 20px;
 }
 
-.room {
+.Room {
   padding: 20px 0 40px;
 }
 
-.room-name a {
+.RoomName a {
   text-decoration: none;
   color: white;
 }
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 
 
-.chat {
+.Chat {
   width: calc(100% - 300px);
 }
 
-.chat-header {
+.ChatHeader {
   height: 100px;
   display: flex;
   padding: 0 40px;
   justify-content: space-between;
 }
 
-.header-name a {
+.HeaderName a {
   color: white;
   text-decoration: none;
 }
 
-.header-title {
+.HeaderTitle {
   color: #333;
   font-size: 20px;
   margin-top: 24px;
 }
 
-.header-members {
+.HeaderMembers {
   color: #999;
   display: flex;
   font-size: 12px;
   margin-top: 15px;
 }
 
-.member {
+.Member {
   padding-right: 5px;
 }
 
-.header-button {
+.HeaderButton {
   margin-top: 40px;
 }
 
-.header-button a {
+.HeaderButton a {
   text-decoration: none;
   border: 1px solid darkred;
   color: darkred;
@@ -93,7 +93,7 @@
 }
 
 // ---------------------------------------------------------
-.messages {
+.Messages {
   background-color: #FAFAFA;
   box-sizing: border-box;
   padding: 46px 40px 0;
@@ -101,30 +101,30 @@
   overflow: scroll;
 }
 
-.message {
+.Message {
   margin: 10px 0;
 }
 
-.upper-message {
+.UpperMessage {
   display: flex;
 }
 
-.message-user {
+.MessageUser {
   color: #434a54;
   font-size: 16px;
 }
 
-.message-date {
+.MessageDate {
   color: #999;
   font-size: 12px;
   padding-left: 10px;
 }
 
-.lower-message {
+.LowerMessage {
   margin-top: 10px;
 }
 
-.message-content {
+.MessageContent {
   color: #434a54;
   font-size: 14px;
   margin-bottom: 40px;
@@ -132,7 +132,7 @@
 
 // ---------------------------------------------------------
 
-.form {
+.Form {
   background-color: #DDDDDD;
   box-sizing: border-box;
   height: 90px;
@@ -140,19 +140,19 @@
   display: flex;
 }
 
-.form-message {
+.FormMessage {
   border: none;
   height: 50px;
   width: 100%;
 }
 
-.form-input {
+.FormInput {
   background-color: white;
   display: flex;
   width: 100%;
 }
 
-.form-image {
+.FormImage {
   font-size: 12px;
   background-color: lightblue;
   color: white;
@@ -161,11 +161,11 @@
   margin: 5px 10px;
 }
 
-.hidden {
+.Hidden {
   display: none;
 }
 
-.form-submit {
+.FormSubmit {
   background-color: #38AEF0;
   border: none;
   color: white;

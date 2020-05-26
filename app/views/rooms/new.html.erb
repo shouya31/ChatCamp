@@ -1,0 +1,36 @@
+<div class="chat-group-form">
+  <h1>新規チャットルーム</h1>
+  <%=form_for @room do |f| %>
+    <div class="chat-group-form__field">
+      <div class="chat-group-form__field--left">
+        <%= f.label :チャットルーム名, class: 'chat-group-form__label' %>
+      </div>
+      <div class="chat-group-form__field--right">
+        <%= f.text_field :name, class: 'chat__group_name chat-group-form__input', placeholder: 'チャットルーム名を入力してください'%>
+      </div>
+    </div>
+
+    <div class="chat-group-form__field.clearfix">
+      <div class="chat-group-form__field--left">
+        <label class="chat-group-form__label">チャットメンバー</label>
+      </div>
+      <div class="chat-group-form__field--right">
+        <select name="room[user_ids][]">
+          <option>チャットするユーザーを選択してください</option>
+          <% User.all.where.not(id: current_user.id).each do |user| %>
+            <option value= <%= user.id %> ><%= user.name %></option>
+          <% end %>
+            <%= f.hidden_field :user, value:current_user.id %>
+        </select>
+      </div>
+    </div>
+
+    <div class="chat-group-form__field.clearfix">
+      <div class="chat-group-form__field--left"></div>
+      <div class="chat-group-form__field--right">
+        <%= f.submit class: 'chat-group-form__action-btn' %>
+      </div>
+    </div>
+
+  <% end %>
+</div>

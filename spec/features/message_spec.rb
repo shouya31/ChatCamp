@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'ユーザー登録', type: :feature do
-  background do
+  background "サインページに移動する" do
     # 予め、ユーザーをDBに保存する
     @user = FactoryBot.create(:user)
 
@@ -11,6 +11,7 @@ feature 'ユーザー登録', type: :feature do
     # ログインしていない場合、サインインページに遷移する
     expect(current_path).to eq new_user_session_path
   end
+
   scenario 'ログインに成功し、ルートパスに遷移する' do
     # すでに保存されているユーザーのnameとemailを入力する
     fill_in 'user_email', with: @user.email
@@ -22,7 +23,6 @@ feature 'ユーザー登録', type: :feature do
     # ルートページに遷移することを期待する
     expect(current_path).to eq root_path
   end
-
   scenario 'ログインに失敗し、再びサインインページに戻ってくる' do
     # 誤ったユーザー情報を入力する
     fill_in 'user_email', with: "test"
@@ -78,7 +78,27 @@ feature 'メッセージ投稿', type: :feature do
     # 送信した画像がブラウザに表示されていることを期待する
     expect(page).to have_selector("img")
   end
-  scenario '送る値がなく、メッセージの送信に失敗すること' do
+  scenario 'テキストと画像の投稿に成功すること' do
+    # 模擬的な値を画像選択フォームに入力する
+    image_path = Rails.root.join('public/images/test_image.png')
+    attach_file('message[image]', image_path)
+
+    # 模擬的な値をテキストフォームに入力する
+    post = "テストテスト"
+    fill_in 'message_content', with: post
+
+    # 送信した値がDBに保存されていることを期待する
+    expect{
+      find('input[name="commit"]').click
+    }.to change { Message.count }.by(1)
+
+    # 送信した値がブラウザに表示されていることを期待する
+    expect(page).to have_content(post)
+
+    # 送信した画像がブラウザに表示されていることを期待する
+    expect(page).to have_selector("img")
+  end
+  scenario '送る値が空の為、メッセージの送信に失敗すること' do
     # DBに保存されていないことを期待する
     expect{
       find('input[name="commit"]').click

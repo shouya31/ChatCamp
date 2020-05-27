@@ -1,23 +1,19 @@
 require 'rails_helper'
 
 feature 'メッセージ投稿', type: :feature do
-  background '必要なレコードの準備' do
-    @user = FactoryBot.create(:user)
-    @room = FactoryBot.create(:room)
-    @member = FactoryBot.create(:member, user_id: @user.id, room_id: @room.id)
+  background do
+    # 中間テーブルを作成して、usersテーブルとroomsテーブルのレコードを作成する
+    @member = FactoryBot.create(:member)
+
+    # サインインする
+    sign_in(@member.user)
+
+    # 作成されたチャットルームへ遷移する
+    click_on(@member.room.name)
   end
 
-  background 'ログインする' do
-    visit root_path
-    fill_in 'user_email', with: @user.email
-    fill_in 'user_password', with: @user.password
-    click_on("Log in")
-    expect(current_path).to eq root_path
-    click_on(@room.name)
-  end
-
-  scenario 'テキストの投稿に成功すること' do
-    # 模擬的な値をテキストフォームに入力する
+  scenario 'テキストの投稿に成功すると、投稿一覧に遷移して、投稿した内容が表示されている' do
+    # 値をテキストフォームに入力する
     post = "テストテスト"
     fill_in 'message_content', with: post
 
@@ -26,11 +22,14 @@ feature 'メッセージ投稿', type: :feature do
       find('input[name="commit"]').click
     }.to change { Message.count }.by(1)
 
+    # 投稿一覧画面に遷移することを期待する
+    expect(current_path).to eq room_messages_path(@member.room)
+
     # 送信した値がブラウザに表示されていることを期待する
     expect(page).to have_content(post)
   end
-  scenario '画像の投稿に成功すること' do
-    # 模擬的な値を画像選択フォームに入力する
+  scenario '画像の投稿に成功すると、投稿一覧に遷移して、投稿した画像が表示されている' do
+    # 画像選択フォームに画像を添付する
     image_path = Rails.root.join('public/images/test_image.png')
     attach_file('message[image]', image_path)
 
@@ -38,6 +37,9 @@ feature 'メッセージ投稿', type: :feature do
     expect{
       find('input[name="commit"]').click
     }.to change { Message.count }.by(1)
+
+    # 投稿一覧画面に遷移することを期待する
+    expect(current_path).to eq room_messages_path(@member.room)
 
     # 送信した画像がブラウザに表示されていることを期待する
     expect(page).to have_selector("img")
@@ -47,7 +49,7 @@ feature 'メッセージ投稿', type: :feature do
     image_path = Rails.root.join('public/images/test_image.png')
     attach_file('message[image]', image_path)
 
-    # 模擬的な値をテキストフォームに入力する
+    # 値をテキストフォームに入力する
     post = "テストテスト"
     fill_in 'message_content', with: post
 
@@ -69,19 +71,7 @@ feature 'メッセージ投稿', type: :feature do
     }.not_to change { Message.count }
 
     # モデルのカウントは変わらずに元のページに戻ってくる
-    expect(current_path).to eq  room_messages_path(@room.id)
-  end
-  scenario 'チャットルームを削除すると、関連するメッセージが全て削除されていること' do
-    # メッセージ情報を5つDBに追加する
-    FactoryBot.create_list(:message, 5, room_id: @room.id, user_id: @user.id)
-
-    # 「チャットを終了する」ボタンをクリックすることで、作成した5つのメッセージが削除されていることを期待する
-    expect{
-      find_link("チャットを終了する",  href: room_path(@room)).click
-    }.to change { @room.messages.count }.by(-5)
-
-    # ルートページに遷移されることを期待する
-    expect(current_path).to eq root_path
+    expect(current_path).to eq  room_messages_path(@member.room.id)
   end
 end
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'ユーザー登録', type: :feature do
+feature 'ユーザーログイン機能', type: :feature do
   background "サインページに移動する" do
     # 予め、ユーザーをDBに保存する
     @user = FactoryBot.create(:user)

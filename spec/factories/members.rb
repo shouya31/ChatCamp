@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :member do
-    user
-    room
+    association :user
+    association :room
   end
 end

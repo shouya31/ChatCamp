@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_room
+  before_action :redirect_to_root_path
 
   def index
     @message = Message.new
@@ -26,5 +27,9 @@ class MessagesController < ApplicationController
 
   def set_room
     @room = Room.find(params[:room_id])
+  end
+
+  def redirect_to_root_path
+    redirect_to root_path unless @room.users.include?(current_user)
   end
 end

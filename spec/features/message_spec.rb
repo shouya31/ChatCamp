@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'メッセージ投稿', type: :feature do
+feature 'メッセージ投稿機能', type: :feature do
   background do
     # 中間テーブルを作成して、usersテーブルとroomsテーブルのレコードを作成する
     @member = FactoryBot.create(:member)

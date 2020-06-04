@@ -14,8 +14,10 @@ class RoomsController < ApplicationController
 
   def destroy
     room = Room.find(params[:id])
-    room.messages.delete_all
-    room.delete
+    if room.users.include?(current_user)
+      room.messages.delete_all
+      room.delete
+    end
     redirect_to root_path
   end
 
